@@ -58,20 +58,15 @@ public class OrderController {
     }
 
     @GetMapping("/currentOrder")
-    public String placeCurrentOrder(Person person, List<OrderLine> orderLineList,
-
-                                    Model model, RedirectAttributes redirectAttributes,
-                                    SessionStatus session) {
-
+    public String placeCurrentOrder(Person person, List<OrderLine> orderLineList, Model model, 
+    				RedirectAttributes redirectAttributes, SessionStatus session) {
 
         Order order = new Order();
-        // This loop is added so the orderlinetable can acces and save the order_id
-        for (OrderLine orderLine : orderLineList
-                ) {
-
+        // This loop is added so the orderlinetable can access and save the order_id
+        for (OrderLine orderLine : orderLineList ) {
             orderLine.setOrder(order);
-
         }
+        
         order.setListOfTotalOrderLines(orderLineList);
         order.setTotalPrice(getTotalPriceOfOrder(order));
 

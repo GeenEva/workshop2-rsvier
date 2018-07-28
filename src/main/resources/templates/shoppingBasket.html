@@ -2,25 +2,26 @@
 <html>
 <head>
     <title>Profile Form</title>
-    <link rel="stylesheet" th:href="@{/css/currentOrder.css}"/>
+    <link rel="stylesheet" th:href="@{/css/shoppingBasket.css}"/>
 </head>
 <body>
-<h1>Mijn bestellingen</h1>
+<h1>Mijn Winkelmandje</h1>
 
 <table class="databaseProductList">
     <tr>
         <th>Aantal</th>
-        <th>Naam</th>
+        <th>Product</th>
         <th>Prijs p.st.</th>
         <th>Totaal per product</th>
     </tr>
     </br>
-
+ </br>
     <tr th:each="orderLine: ${orderLineList}">
         <td th:text="${orderLine.numberOfProducts}"></td>
         <td th:text="${orderLine.product.name}"></td>
-        <td th:text="${orderLine.product.price}"></td>
-        <td th:text="${orderLine.numberOfProducts * orderLine.product.price}"></td>
+        <td>€ <span th:text="${#numbers.formatDecimal(orderLine.product.price, 0, 'COMMA', 2, 'POINT')}">10.00</span></td>
+        <td>€ <span th:text="${#numbers.formatDecimal(orderLine.numberOfProducts * orderLine.product.price, 0, 'COMMA', 2, 'POINT')}">10.00</span></td>
+        
     </tr>
 </table>
 <table class="databaseProductList">
@@ -28,9 +29,11 @@
         <th>Totale prijs van de bestelling</th>
     </tr>
     </br>
-    <td th:text="${totalPrice}"></td>
+    <td>€ <span th:text="${totalPrice}"></span></td>
 </table>
-</br>
+
+</br><br></br><br>
+
 <form method="GET" th:action="@{/orderLine/showNewOrderLineForOrderLineList}"></a>
 
     <input class="button" type="submit" value="Bestel nog een product"/>

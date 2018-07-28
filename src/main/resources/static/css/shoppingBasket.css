@@ -21,12 +21,6 @@ body {
     margin-right: auto;
 }
 
-h1 {
-    border-bottom: 5px solid black;
-    border-left: 3px solid black;
-    border-right: 3px solid black;
-}
-
 .validationError {
     color: white;
 }
@@ -34,6 +28,7 @@ h1 {
 .headerForSearchOrder {
     margin-top: 2px;
     border-bottom: 2px solid black;
+   
 }
 
 .button {
