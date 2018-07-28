@@ -2,41 +2,45 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-    <title>Login page</title>
-    <link rel="stylesheet" th:href="@{/css/login.css}"/>
+<title>Login page</title>
+<link rel="stylesheet" th:href="@{/css/login.css}" />
 </head>
 <body>
 
 <div class="header">
 	<h2> Inloggen </h2>
-</div>
-<p>
-    <span class="validationError" th:text="${message}">Message</span>
-</p>
 
-<form method="POST" th:action="@{/login}" th:object="${account}">
+	<div><span class="validationError" th:text="${message}">Message</span></div>
+	
 
-    <label class="formDetails" for="username">Email: </label> <input type="text" name="email"
-                                                                     placeholder="vul e-mail adres in"
-                                                                     th:field="*{email}"/>
-    <span class="validationError" th:if="${#fields.hasErrors('email')}" th:errors="*{email}">Cannot be Empty</span>
-    </br>
-    <label class="formDetails" for="password">Password: </label> <input type="password" name="password"
-                                                                        placeholder="vul wachtwoord in"/>
-    <span class="validationError" th:if="${#fields.hasErrors('password')}"
-          th:errors="*{password}">Cannot be Empty</span>
+	<form method="POST" th:action="@{/login}" th:object="${account}">
 
-    </br>
+	    <label class="formDetails" for="username">Email: </label> 
+	    <input type="text" name="email" placeholder="vul e-mail adres in" th:field="*{email}"/>
+	    <span class="validationError" th:if="${#fields.hasErrors('email')}" 
+	    	th:errors="*{email}">Cannot be Empty</span>
+	    </br>
+	    
+	    <label class="formDetails" for="password">Password: </label> 
+	    <input type="password" name="password"placeholder="vul wachtwoord in"/>
+	    <span class="validationError" th:if="${#fields.hasErrors('password')}"
+	          th:errors="*{password}">Cannot be Empty</span>
+	
+	    </br>
     <p><input class="buttonLogin" type="submit" value="Inloggen"/></p>
 
-</form>
+	</form>
 
-<p>
-    Heb je nog geen account voor de geweldige website nevvo meubels !? <a class="newAccountLink"
-                                                                          th:href="@{/account}"> Klik dan hier</a>
-</p>
+<div> Heb je nog geen account voor Nevvo meubels? <a class="newAccountLink"
+                                                   th:href="@{/account}"> Klik dan hier</a>
+</div>
+
+<br>
+
 <img th:src="@{/images/nevvoMeubel2.jpg}" alt="nevvoMeubels"
      class="image"/>
+     
+</div>     
 <div class="footer">Team Nevvo 2018 | All rights are reserved</div>
 </body>
 </html>
