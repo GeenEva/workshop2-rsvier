@@ -6,7 +6,7 @@
 </head>
 <body>
 <h1>Bestel uw product</h1>
-
+<br>
 <h4>Dit is de huidige producten lijst waaruit u kunt kiezen</h4>
 <table class="databaseProductList">
     <tr>
@@ -36,7 +36,7 @@
     <input type="text" name="numberOfProducts" th:field="*{numberOfProducts}"/> </br>
     <span class="validationError" th:if="${#fields.hasErrors('numberOfProducts')}"
           th:errors="*{numberOfProducts}"></span>
-    </br>
+    </br><br>
     <input class="button" type="submit" value="Voeg toe aan winkelmand"/>
 
 </form>
