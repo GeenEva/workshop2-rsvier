@@ -7,12 +7,12 @@
 </head>
 <body>
 
-
 <div class="header">
-		<div class="intro">
-            <h2 class="customerName">Welkom <span th:text="${person.name}">Name</span> <span
+	<div class="intro">
+           <h2 class="customerName">Welkom <span th:text="${person.name}">Name</span> <span
                     th:text="${person.lastName}">Last name</span>!</h2>
-		</div>
+	</div>
+	
     <div class="listItem">
         <a class="hyperLinks" th:href="@{/customer/personDetails}"> Mijn account</a>
 		</div>

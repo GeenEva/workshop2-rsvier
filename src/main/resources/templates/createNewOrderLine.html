@@ -10,33 +10,34 @@
 <h4>Dit is de huidige producten lijst waaruit u kunt kiezen</h4>
 <table class="databaseProductList">
     <tr>
-        <th>Naam</th>
-        <th>Prijs</th>
-        <th>Voorraad</th>
+        <th></th>
+        <th></th>
+        <th>(voorraad)</th>
     </tr>
     <tr th:each="product: ${productList}">
         <td th:text="${product.name}"></td>
-        <td th:text="${product.price}"></td>
+        <td>€ <span th:text="${#numbers.formatDecimal(product.price, 0, 'COMMA', 2, 'POINT')}">10.00</span></td>
         <td th:text="${product.stock}"></td>
     </tr>
 </table>
 
 <span class="validationError" th:text="${warningMessage}">Message</span>
+<br><br>
 
 <form method="POST" th:action="@{/orderLine/createNewOrderLine}"
       th:object="${orderLine}">
 
-    <label class="formDetails" for="product.name">Naam: </label>
-    <input type="text" name="product.name" placeholder="verplicht veld" th:field="*{product.name}"/></br>
+    <label class="formDetails" for="product.name">Kies uw product: </label>
+    <input type="text" name="product.name" placeholder="productnaam" th:field="*{product.name}"/></br>
     <span class="validationError" th:if="${#fields.hasErrors('product.name')}" th:errors="*{product.name}"></span>
 
-    <label class="formDetails" for="numberOfProducts">Aantal: </label>
+    <label class="formDetails" for="numberOfProducts">Kies het aantal: </label>
 
-    <input type="text" name="numberOfProducts" placeholder="verplicht veld" th:field="*{numberOfProducts}"/> </br>
+    <input type="text" name="numberOfProducts" th:field="*{numberOfProducts}"/> </br>
     <span class="validationError" th:if="${#fields.hasErrors('numberOfProducts')}"
           th:errors="*{numberOfProducts}"></span>
     </br>
-    <input class="button" type="submit" value="Bestel uw product"/>
+    <input class="button" type="submit" value="Voeg toe aan winkelmand"/>
 
 </form>
 </br>
