@@ -1,3 +1,5 @@
+@charset "ISO-8859-1";
+
 body {
     font-family: Cambria, "Hoefler Text", "Liberation Serif", Times,
     "Times New Roman", "serif";
@@ -9,9 +11,9 @@ body {
 }
 
 header {
-    margin-bottom: 20px;
-    font-size: 40px;
-    border-bottom: 5px solid black;
+    margin-bottom: 10px;
+    font-size: 20px;
+    border-bottom: 3px solid black;
     border-left: 2px solid black;
     border-right: 2px solid black;
 }

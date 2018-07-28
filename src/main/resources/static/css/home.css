@@ -12,8 +12,9 @@ body {
 
 header {
     margin-bottom: 10px;
+    margin-top: 10px;
     font-size: 40px;
-    border-bottom: 5px solid black;
+    border-bottom: 3px solid black;
     border-left: 2px solid black;
     border-right: 2px solid black;
 }
@@ -42,7 +43,7 @@ ul li a {
     color: white;
     border-radius: 3px;
     padding: 3px;
-    background-color: darkgrey;
+    background-color: #feb9b9;
     opacity: .7;
 }
 
