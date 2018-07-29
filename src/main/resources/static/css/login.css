@@ -1,6 +1,4 @@
-@charset "ISO-8859-1";
-
-.body {
+body {
     font-family: Cambria, "Hoefler Text", "Liberation Serif", Times,
     "Times New Roman", "serif";
     font-variant-caps: small-caps;
@@ -10,15 +8,15 @@
     width: 900px;
 }
 
-.header {
-    margin-bottom: 10px;
-    font-size: 60px;
-    border-bottom: 3px solid black;
+header {
+    margin-bottom: 20px;
+    font-size: 40px;
+    border-bottom: 5px solid black;
     border-left: 2px solid black;
     border-right: 2px solid black;
 }
 
-.h1 {
+h1 {
     border-bottom: 5px solid black;
     border-left: 3px solid black;
     border-right: 3px solid black;
@@ -38,12 +36,12 @@
 
 .newAccountLink {
     color: grey;
-    text-decoration: none;
+    text-decoration: underline;
 }
 
 .newAccountLink:hover {
     text-decoration: none;
-    border-bottom: 1px solid black;
+    border-bottom: 2px solid black;
 }
 
 .image {
@@ -54,8 +52,8 @@
     background-color: darkgrey;
     border: none;
     color: white;
-    padding: 10px 20px;
-    text-align: center;
+    padding: 10px 180px;
+    text-align: right;
     text-decoration: none;
     display: inline-block;
     font-size: 16px;

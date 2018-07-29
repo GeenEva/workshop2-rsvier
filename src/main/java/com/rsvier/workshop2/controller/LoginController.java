@@ -61,8 +61,7 @@ public class LoginController {
 
 		Account accountDB = accountRepository.findByEmail(account.getEmail());
 
-		if (accountDB != null && accountDB.getEmail().equals(account.getEmail())
-				&& accountDB.getPassword().equals(account.getPassword())) {
+		if (accountDB != null && accountDB.getPassword().equals(account.getPassword())) {
 			
 			Person person = personRepository.findByAccount(accountDB);
 			model.addAttribute("person", person);
