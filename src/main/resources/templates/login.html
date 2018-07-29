@@ -10,7 +10,7 @@
 <div class="header">
 	<h2> Inloggen </h2>
 
-	<div><span class="validationError" th:text="${message}">Message</span></div>
+	<p><div><span class="validationError" th:text="${message}">Message</span></div></p>
 	
 
 	<form method="POST" th:action="@{/login}" th:object="${account}">

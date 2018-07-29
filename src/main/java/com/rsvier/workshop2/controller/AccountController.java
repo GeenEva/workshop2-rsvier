@@ -45,9 +45,10 @@ public class AccountController {
 	}
 
 	/*
-	 * The @ModelAttribute is an annotation that binds a method parameter or method
+	 * The @ModelAttribute binds a method parameter or method
 	 * return value to a named model attribute and then exposes it to a web view.
 	 */
+	
 	@ModelAttribute("account")
 	public Account getAccount() {
 		return new Account();
@@ -61,17 +62,28 @@ public class AccountController {
 	
 
 	@PostMapping
-	public String doCreateAccount(@Valid Account account, Errors errors) {
+	public String doCreateAccount(@Valid Account account, Errors errors, Model model) {
 
 		if (errors.hasErrors()) {
-			return "accountForm";
+			return "createNewAccount";
 		}
-
+		
+		String mailFromDB = (accountRepository.findByEmail(account.getEmail())).getEmail();
+		
+		if (mailFromDB!=null) {
+			String message = "Dit e-mail adres bestaat al, kies a.u.b. een ander e-mail adres.";
+			model.addAttribute("message", message);
+			return "createNewAccount";
+		}
+		
 		account.setAccountType(AccountType.CUSTOMER);
 
 		return "redirect:/person";
 	}
 
+		
+		
+		
 	@PostMapping("/editPassword")
 	public String editPassword(@Valid Account account, Errors error, RedirectAttributes redirectAttributes ,Model model) {
 	
